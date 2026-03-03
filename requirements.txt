@@ -1,0 +1,10 @@
+langchain
+wikipedia
+langchain-community
+python-dotenv
+pydantic
+ollama
+numpy 
+pandas
+scikit-learn
+
