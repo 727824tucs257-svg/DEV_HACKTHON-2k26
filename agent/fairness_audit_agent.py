@@ -5,17 +5,15 @@ class FairnessGovernanceAgent:
     def __init__(self, model="llama3"):
         self.model = model
         self.ollama_url = "http://localhost:11434/api/generate"
-        # Protected attributes that should not influence the score unfairly
+        
         self.protected_attributes = ["gender", "college", "age", "ethnicity"]
 
     def audit(self, decision, candidate):
-        """
-        Audits the evaluation decision for bias and ethical compliance.
-        """
+        
         score = decision.get("final_score", 0)
         demographics = candidate.demographics
         
-        # 1. Automated Bias Detection (Rule-based)
+        
         alerts = []
         
         
