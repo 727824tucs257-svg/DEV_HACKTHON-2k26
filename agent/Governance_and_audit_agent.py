@@ -18,45 +18,37 @@ class GovernanceAuditAgent:
         career_report,
         negotiation_report
     ):
-        """
-        Monitors all agents and performs governance level audit
-        """
+        
 
         alerts = []
 
-        # -----------------------------
-        # Rule Based Governance Checks
-        # -----------------------------
-
-        # Fairness Risk Check
+      
         if fairness_report.get("risk_level") == "High":
             alerts.append("Fairness risk detected in hiring decision")
 
-        # Team Compatibility Check
+        
         team_score = team_report.get("team_compatibility_score", 1)
 
         if team_score < 0.4:
             alerts.append("Low team compatibility may impact team performance")
 
-        # Career Path Check
+        
         skill_gap = career_report.get("skill_gap", [])
 
         if len(skill_gap) > 5:
             alerts.append("Large skill gap for the role")
 
-        # Negotiation Check
+        
         negotiated_salary = negotiation_report.get("final_salary", 0)
 
         if negotiated_salary > negotiation_report.get("max_budget", negotiated_salary):
             alerts.append("Negotiated salary exceeds allowed budget")
 
-        # Decision Consistency Check
+     
         if decision["final_score"] > 0.75 and fairness_report.get("risk_level") == "High":
             alerts.append("High candidate score but fairness risk detected")
 
-        # --------------------------------
-        # LLM Governance Review (Ollama)
-        # --------------------------------
+    
 
         prompt = f"""
 [SYSTEM: GOVERNANCE AUDIT AGENT]
@@ -112,9 +104,7 @@ Return result strictly in JSON.
                 "error": f"Ollama connection failed: {str(e)}"
             }
 
-        # --------------------------------
-        # Governance Verdict
-        # --------------------------------
+       
 
         compliant = len(alerts) == 0
 

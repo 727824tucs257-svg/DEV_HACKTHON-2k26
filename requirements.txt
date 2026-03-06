@@ -7,4 +7,5 @@ ollama
 numpy 
 pandas
 scikit-learn
-
+fastapi
+uvicorn

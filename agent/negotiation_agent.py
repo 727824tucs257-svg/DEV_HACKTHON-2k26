@@ -1,12 +1,10 @@
 class NegotiationAgent:
     def __init__(self):
-        # No LLM initialization needed here anymore
+        
         pass
 
     def _calculate_base_offer(self, final_score, budget_min, budget_max):
-        """
-        Calculates an offer scaled by the candidate's evaluation score.
-        """
+       
         score = max(0.0, min(final_score, 1.0))
         offer = budget_min + (budget_max - budget_min) * score
         return round(offer, 2)

@@ -1,6 +1,6 @@
 import requests
 import json
-
+from datetime import datetime 
 class FairnessGovernanceAgent:
     def __init__(self, model="llama3"):
         self.model = model
@@ -57,5 +57,5 @@ class FairnessGovernanceAgent:
             "risk_level": "Low" if is_fair else "High",
             "alerts": alerts,
             "llm_audit_summary": llm_analysis,
-            "timestamp": "2026-03-02"
+            "timestamp": str(datetime.now())
         }
