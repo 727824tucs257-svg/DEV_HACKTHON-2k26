@@ -1,8 +1,14 @@
 from models.candidate import Candidate
 from models.role import Role
+
 from agent.candidate_evaluation_agent import CandidateEvaluationAgent
 from agent.fairness_audit_agent import FairnessGovernanceAgent
 from agent.explanation_agent import ExplanationAgent
+from agent.team_compatibility_agent import TeamCompatibilityAgent
+from agent.career_growth_agent import CareerGrowthAgent
+from agent.negotiation_agent import NegotiationAgent
+from agent.Governance_and_audit_agent import GovernanceAuditAgent
+from agent.Orchestrator_agent import HiringOrchestratorAgent
 
 
 def list_input(msg):
@@ -10,6 +16,7 @@ def list_input(msg):
 
 
 def main():
+
     print("\n=== Autonomous Hiring System (Agentic + Ollama) ===\n")
 
     candidate = Candidate(
@@ -35,22 +42,44 @@ def main():
         growth_path=list_input("Growth path: ")
     )
 
+    expected_salary = float(input("\nCandidate expected salary: "))
+    budget_min = float(input("Role minimum budget: "))
+    budget_max = float(input("Role maximum budget: "))
+
     eval_agent = CandidateEvaluationAgent()
     fairness_agent = FairnessGovernanceAgent()
+    team_compatibility_agent = TeamCompatibilityAgent()
+    career_growth_agent = CareerGrowthAgent()
+    negotiation_agent = NegotiationAgent()
+    governance_and_audit_agent = GovernanceAuditAgent()
     explanation_agent = ExplanationAgent()
 
-    decision = eval_agent.evaluate(candidate, role)
-    audit = fairness_agent.audit(decision, candidate)
-    explanation = explanation_agent.explain(candidate, role, decision,audit)
+    agents = {
+        "evaluation": eval_agent,
+        "fairness": fairness_agent,
+        "team": team_compatibility_agent,
+        "career": career_growth_agent,
+        "negotiation": negotiation_agent,
+        "governance": governance_and_audit_agent,
+        "explanation": explanation_agent
+    }
 
-    print("\n--- FINAL DECISION ---")
-    print(decision)
+  
+    orchestrator = HiringOrchestratorAgent(agents)
 
-    print("\n--- FAIRNESS AUDIT ---")
-    print(audit)
+    result = orchestrator.run(
+        candidate,
+        role,
+        expected_salary,
+        budget_min,
+        budget_max
+    )
 
-    print("\n--- AI EXPLANATION (OLLAMA) ---")
-    print(explanation)
+    print("\n=== AUTONOMOUS HIRING RESULT ===")
+
+    for key, value in result.items():
+        print(f"\n--- {key.upper()} ---")
+        print(value)
 
 
 if __name__ == "__main__":

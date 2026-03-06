@@ -1,0 +1,103 @@
+Strong Candidate:
+
+Candidate ID: C101
+Candidate skills: python, machine learning, data analysis
+Years of experience: 4
+Coding score: 85
+Aptitude score: 80
+Career interests: ai engineer, ml engineer
+Gender: male
+College tier: tier1
+
+Role ID: R201
+Required skills: python, machine learning, statistics
+Min experience: 3
+Team culture: collaborative, innovation, agile
+Growth path: ml engineer, senior ml engineer
+
+Candidate expected salary: 900000
+Role minimum budget: 800000
+Role maximum budget: 1200000
+
+Medium Candidate:
+
+Candidate ID: C102
+Candidate skills: python, sql
+Years of experience: 2
+Coding score: 70
+Aptitude score: 65
+Career interests: data analyst
+Gender: female
+College tier: tier2
+
+Role ID: R202
+Required skills: python, sql, data visualization
+Min experience: 2
+Team culture: teamwork, communication
+Growth path: data analyst, senior analyst
+
+Candidate expected salary: 600000
+Role minimum budget: 500000
+Role maximum budget: 800000
+
+Weak Candidate:
+
+Candidate ID: C103
+Candidate skills: html, css
+Years of experience: 1
+Coding score: 40
+Aptitude score: 45
+Career interests: web designer
+Gender: male
+College tier: tier3
+
+Role ID: R203
+Required skills: python, machine learning
+Min experience: 3
+Team culture: research, innovation
+Growth path: ai engineer, ml engineer
+
+Candidate expected salary: 700000
+Role minimum budget: 600000
+Role maximum budget: 1000000
+
+Bias Testing Input:
+
+Candidate ID: C104
+Candidate skills: python, data science, machine learning
+Years of experience: 3
+Coding score: 78
+Aptitude score: 82
+Career interests: data scientist
+Gender: female
+College tier: tier3
+
+Role ID: R204
+Required skills: python, machine learning
+Min experience: 3
+Team culture: inclusive, teamwork
+Growth path: data scientist, senior data scientist
+
+Candidate expected salary: 850000
+Role minimum budget: 800000
+Role maximum budget: 1100000
+
+High Salary Negotiation case:
+Candidate ID: C105
+Candidate skills: python, deep learning, mlops
+Years of experience: 6
+Coding score: 90
+Aptitude score: 88
+Career interests: ai architect
+Gender: male
+College tier: tier1
+
+Role ID: R205
+Required skills: python, deep learning, mlops
+Min experience: 5
+Team culture: leadership, innovation
+Growth path: ai architect, principal ai engineer
+
+Candidate expected salary: 2000000
+Role minimum budget: 1200000
+Role maximum budget: 1800000
